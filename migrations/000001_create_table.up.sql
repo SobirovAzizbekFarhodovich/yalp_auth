@@ -1,3 +1,7 @@
+-- Agar kerak bo'lsa, role_user turini o'chirib tashlash
+DROP TYPE IF EXISTS role_user;
+
+-- Role_user turini yaratish
 CREATE TYPE role_user AS ENUM ('admin', 'user');
 
 CREATE TABLE users (
@@ -8,9 +12,11 @@ CREATE TABLE users (
     profile_picture VARCHAR(255),                 
     bio TEXT,                                     
     role role_user DEFAULT 'user',                
-    created_at TIMESTAMP DEFAULT CURRENT_TIMESTAMP
-    updated_at TIMESTAMP DEFAULT CURRENT_TIMESTAMP 
+    created_at TIMESTAMP DEFAULT CURRENT_TIMESTAMP,
+    updated_at TIMESTAMP DEFAULT CURRENT_TIMESTAMP,
+    deleted_at BIGINT DEFAULT 0
 );
+
 
 CREATE OR REPLACE FUNCTION update_timestamp()
 RETURNS TRIGGER AS $$   

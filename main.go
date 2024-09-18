@@ -44,7 +44,7 @@ func main() {
 		}
 	}()
 
-	userConn, err := grpc.NewClient(fmt.Sprintf(cnf.GrpcUserPort), grpc.WithTransportCredentials(insecure.NewCredentials()))
+	userConn, err := grpc.NewClient(fmt.Sprintf("auth%s", cnf.GrpcUserPort), grpc.WithTransportCredentials(insecure.NewCredentials()))
 	if err != nil {
 		log.Fatal("Error while NewClient: ", err.Error())
 	}

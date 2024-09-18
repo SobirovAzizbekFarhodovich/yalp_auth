@@ -45,11 +45,11 @@ func Load() Config {
 	config.SmtpSender = cast.ToString(getOrReturnDefaultValue("SMTP_SENDER", "example@gmail.com"))
 	config.SmtpPassword = cast.ToString(getOrReturnDefaultValue("SMTP_PASSWORD", "1234"))
 
-	config.PostgresHost = cast.ToString(getOrReturnDefaultValue("POSTGRES_HOST", "localhost"))
+	config.PostgresHost = cast.ToString(getOrReturnDefaultValue("POSTGRES_HOST", "business"))
 	config.PostgresPort = cast.ToInt(getOrReturnDefaultValue("POSTGRES_PORT", 5432))
 	config.PostgresUser = cast.ToString(getOrReturnDefaultValue("POSTGRES_USER", "azizbek"))
 	config.PostgresPassword = cast.ToString(getOrReturnDefaultValue("POSTGRES_PASSWORD", "123"))
-	config.PostgresDatabase = cast.ToString(getOrReturnDefaultValue("POSTGRES_DATABASE", "yalp_auth"))
+	config.PostgresDatabase = cast.ToString(getOrReturnDefaultValue("POSTGRES_DATABASE", "business"))
 
 	config.RedisHost = cast.ToString(getOrReturnDefaultValue("REDIS_HOST", "localhost"))
 	config.RedisPort = cast.ToString(getOrReturnDefaultValue("REDIS_PORT", ":6379"))
