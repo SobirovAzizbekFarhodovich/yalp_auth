@@ -232,7 +232,7 @@ func (h *Handler) ForgotPassword(ctx *gin.Context) {
 
 	email, _ := token.GetEmailFromToken(ctx.Request, &cnf)
 	if !isValidEmail(email) {
-		ctx.JSON(400, gin.H{"error": "Noto'g'ri email manzili"})
+		ctx.JSON(400, gin.H{"error": "Invalid email address"})
 		return
 	}
 
@@ -240,11 +240,11 @@ func (h *Handler) ForgotPassword(ctx *gin.Context) {
 
 	err := h.redis.SaveToken(email, fmt.Sprintf("%d", f), time.Minute*2)
 	if err != nil {
-		ctx.JSON(400, gin.H{"error": "Tokenni saqlashda xatolik"})
+		ctx.JSON(400, gin.H{"error": "Error saving token"})
 		return
 	}
 
-	ctx.JSON(200, gin.H{"message": "Email orqali xabar yuborildi"})
+	ctx.JSON(200, gin.H{"message": "Email message sent"})
 }
 
 func isValidEmail(email string) bool {

@@ -239,7 +239,7 @@ func (p *UserStorage) GetAllUsers(req *pb.GetAllUsersRequest) (*pb.GetAllUsersRe
 	query := `
 		SELECT id, email, full_name, profile_picture, bio, role 
 		FROM users 
-		WHERE deleted_at IS NULL 
+		WHERE deleted_at = 0 
 		LIMIT $1 OFFSET $2
 	`
 	
